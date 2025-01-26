@@ -3,14 +3,11 @@ package Database;
 import Vehicles.Vehicle;
 
 import java.util.ArrayList;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
 
 public class Garage {
     private Protocol_Garage Protocol;
     private ArrayList<Vehicle> Vehicles;
-    private ScheduledExecutorService exec;
+
 
     public Garage(Protocol_Garage Protocol,ArrayList<Vehicle>Vehicles){
         this.Protocol = Protocol;
