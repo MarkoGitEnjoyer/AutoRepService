@@ -3,15 +3,23 @@ package Database;
 import Vehicles.Vehicle;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Queue;
 
 public class Garage {
     private Protocol_Garage Protocol;
     private ArrayList<Vehicle> Vehicles;
 
 
-    public Garage(Protocol_Garage Protocol,ArrayList<Vehicle>Vehicles){
+    public Garage(Protocol_Garage Protocol, HashMap<Integer, Queue<Vehicle>> Vehicles){
         this.Protocol = Protocol;
-        this.Vehicles = Vehicles;
+        this.Vehicles = new ArrayList<Vehicle>();
+        for (HashMap.Entry<Integer, Queue<Vehicle>> entry : Vehicles.entrySet()) {
+            Queue<Vehicle> queue = entry.getValue();
+            for (Vehicle vehicle : queue) {
+                this.Vehicles.add(vehicle);
+            }
+        }
     }
     public void start() {
         if (Vehicles.isEmpty()) {

@@ -10,6 +10,10 @@ public class Motorcycle extends Vehicle{
         System.out.println("Motorcycle:"+name+" wheels were fixed");
     }
 
+    public static Motorcycle create(String name) {
+        return new Motorcycle(name);
+    }
+
     @Override
     public int getRepairTime() {
         return 3;

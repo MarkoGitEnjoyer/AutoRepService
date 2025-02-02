@@ -13,6 +13,10 @@ public class Truck extends Vehicle {
 
     }
 
+    public static Truck create(String name) {
+        return new Truck(name);
+    }
+
     @Override
     public int getRepairTime() {
         return 10;

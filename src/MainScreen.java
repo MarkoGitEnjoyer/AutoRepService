@@ -22,28 +22,20 @@ public class MainScreen {
     public  void start() {
         while (true) {
             System.out.println("Please choose the type of vehicle:");
-            System.out.println("(1) - Car\n(2) - Truck\n(3) - Motorcycle\n(-1) - Exit");
+            System.out.println("(1) - Motorcycle\n(2) - Car\n(3) - Truck\n(-1) - Exit");
 
             int vehicleType = scanner.nextInt();
-
             if (vehicleType == -1) {
                 break;
             }
             System.out.print("Enter the vehicle name: ");
-            scanner.next();
+            scanner.nextLine();
             String name = scanner.nextLine();
 
-
-            switch (vehicleType) {
-                case 1 -> manager.addVehicle(new Car(name));
-                case 2 -> manager.addVehicle(new Truck(name));
-                case 3 -> manager.addVehicle(new Motorcycle(name));
-                default -> System.out.println("Invalid vehicle type! Please try again.");
-            }
+            manager.build(vehicleType, name);
         }
-        Garage g = new Garage(protocolGarage,manager.getVehicles());
-        System.out.println("starting to fix vehicles \n");
-
+        Garage g = new Garage(protocolGarage, manager.getVehicles());
+        System.out.println("Starting to fix vehicles\n");
         g.start();
     }
 
